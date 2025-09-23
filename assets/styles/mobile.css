@@ -10,9 +10,15 @@
   }
 
   .a-goe-logo {
-    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    
+    /* position: sticky;
     top: 10px;
-    left: 25%;
+    left: 25%; */
   }
 
   body {
