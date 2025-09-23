@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Animação Web</title>
+    <style>
+        /* ESTILOS GERAIS PARA A PÁGINA */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        section {
+            background-color: #282828;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid #333;
+        }
+        h1, h2 {
+            text-align: center;
+            border-bottom: 2px solid #00aaff;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        p {
+            line-height: 1.6;
+        }
+
+        /* ------------------------------------------- */
+        /* --- EXEMPLO 1: ANIMAÇÃO FADE-IN (CSS) --- */
+        /* ------------------------------------------- */
+        /* Define a animação 'fadeIn' */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .fade-in {
+            /* Aplica a animação: nome, duração, tipo de curva */
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* ------------------------------------------- */
+        /* --- EXEMPLO n: ANIMAÇÃO FADE-OUT (CSS) --- */
+        /* ------------------------------------------- */
+        /* Define a animação 'fadeIn' */
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        .fade-out {
+            /* Aplica a animação: nome, duração, tipo de curva */
+            animation: fadeOut 1.5s ease-in-out;
+        }
+
+        /* --------------------------------------------- */
+        /* --- EXEMPLO 2: ANIMAÇÃO SLIDE-IN (CSS) --- */
+        /* --------------------------------------------- */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .slide-in {
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        /* ------------------------------------------ */
+        /* --- EXEMPLO 3: ANIMAÇÃO PULSE (CSS) --- */
+        /* ------------------------------------------ */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 170, 255, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 10px 20px rgba(0, 170, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 170, 255, 0);
+            }
+        }
+        .pulse-button {
+            padding: 15px 30px;
+            border: none;
+            background-color: #00aaff;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            /* Aplica a animação de forma infinita */
+            animation: pulse 2s infinite;
+        }
+
+        /* ---------------------------------------------------- */
+        /* --- EXEMPLO 4: GRADIENTE ANIMADO (CSS) --- */
+        /* ---------------------------------------------------- */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-gradient {
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%; /* Tamanho grande para permitir o movimento */
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        /* ---------------------------------------------------- */
+        /* --- EXEMPLO 5: ANIMAÇÃO AO ROLAR (CSS + JS) --- */
+        /* ---------------------------------------------------- */
+        .hidden-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            /* A transição é que faz a animação suave quando a classe for removida */
+        }
+        .show-on-scroll {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------------------------------------------------- */
+        /* --- EXEMPLO 6: CONTADOR NUMÉRICO (JS) --- */
+        /* ---------------------------------------------------- */
+        .counter-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .counter {
+            font-size: 48px;
+            font-weight: bold;
+            color: #00aaff;
+        }
+        .counter-label {
+            font-size: 16px;
+            color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+
+    <main>
+        <section>
+            <h2 class="fade-in">Exemplo 1: Fade-in com CSS</h2>
+            <p class="fade-in">Este texto aparece suavemente quando a página carrega usando a propriedade <code>opacity</code> e <code>@keyframes</code>.</p>
+        </section>
+
+        <section>
+            <h2 class="fade-out">Exemplo n: Fade-out com CSS</h2>
+            <p class="fade-out">Este texto desaparece suavemente quando a página carrega usando a propriedade <code>opacity</code> e <code>@keyframes</code>.</p>
+        </section>
+
+        <section>
+            <h2 class="slide-in">Exemplo 2: Slide-in com CSS</h2>
+            <p class="slide-in">Este texto desliza da esquerda para a direita, combinando <code>opacity</code> e <code>transform: translateX()</code>.</p>
+        </section>
+
+        <section style="text-align: center;">
+            <h2>Exemplo 3: Botão Pulsante com CSS</h2>
+            <p>Ideal para botões de "Call to Action", atraindo a atenção do usuário de forma contínua.</p>
+            <button class="pulse-button">Clique Aqui!</button>
+        </section>
+
+        <section class="animated-gradient">
+            <h2>Exemplo 4: Fundo de Gradiente Animado</h2>
+            <p>Esta animação de fundo cria um efeito visual moderno e agradável, movendo as cores de um gradiente.</p>
+        </section>
+
+        <section>
+            <h2>Exemplo 5: Animação ao Rolar (Scroll)</h2>
+            <p>Role a página para baixo. Os elementos a seguir só aparecerão quando entrarem na tela.</p>
+        </section>
+        
+        <section class="hidden-on-scroll">
+            <h3>Elemento 1</h3>
+            <p>Este conteúdo estava escondido e apareceu porque você rolou a página até ele. A técnica usa JavaScript para detectar a visibilidade e CSS para a animação.</p>
+        </section>
+        <section class="hidden-on-scroll">
+            <h3>Elemento 2</h3>
+            <p>Funciona para qualquer tipo de conteúdo: textos, imagens, cards, etc. É muito usado em landing pages modernas.</p>
+        </section>
+        
+        <section>
+            <h2>Exemplo 6: Contador Numérico com JavaScript</h2>
+            <p>Esta animação não pode ser feita apenas com CSS. O JavaScript atualiza o texto do número rapidamente até atingir o valor final.</p>
+            <div class="counter-container">
+                <div>
+                    <div class="counter" data-target="1250">0</div>
+                    <div class="counter-label">Projetos</div>
+                </div>
+                <div>
+                    <div class="counter" data-target="890">0</div>
+                    <div class="counter-label">Clientes Satisfeitos</div>
+                </div>
+                <div>
+                    <div class="counter" data-target="3400">0</div>
+                    <div class="counter-label">Cafés Tomados</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- SCRIPT PARA EXEMPLO 5: ANIMAÇÃO AO ROLAR ---
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                // Se o elemento está visível na tela
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-on-scroll');
+                    // Opcional: para a animação acontecer apenas uma vez
+                    // scrollObserver.unobserve(entry.target); 
+                } else {
+                    // Opcional: para a animação acontecer toda vez que o elemento sai e volta
+                    entry.target.classList.remove('show-on-scroll');
+                }
+            });
+        }, {
+            threshold: 0.1 // A animação começa quando 10% do elemento está visível
+        });
+
+        // Pega todos os elementos com a classe .hidden-on-scroll e manda o observer "observá-los"
+        const hiddenElements = document.querySelectorAll('.hidden-on-scroll');
+        hiddenElements.forEach((el) => scrollObserver.observe(el));
+
+
+        // --- SCRIPT PARA EXEMPLO 6: CONTADOR NUMÉRICO ---
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // Velocidade da animação (maior = mais lento)
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target'); // O '+' converte a string para número
+                const count = +counter.innerText;
+                
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 10); // Agenda a próxima atualização
+                } else {
+                    counter.innerText = target; // Garante que o valor final seja exato
+                }
+            };
+
+            updateCount();
+        });
+
+    </script>
+</body>
+</html>
