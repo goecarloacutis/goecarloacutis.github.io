@@ -2,8 +2,8 @@
   .carlo-png {
     top: 200px;
     left: 7%;
-    /* position: absolute; */
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
 
     width: 330px;
 
